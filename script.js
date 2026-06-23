@@ -5,6 +5,8 @@ let indiceCaractere = 0;
 let apagando = false;
 
 function digitar() {
+    if (!elementoTexto) return;
+
     const palavraAtual = palavras[indicePalavra];
     
     if (apagando) {
@@ -33,5 +35,7 @@ function digitar() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(digitar, 1000);
+    if (elementoTexto) {
+        setTimeout(digitar, 1000);
+    }
 });

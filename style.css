@@ -1,28 +1,96 @@
 body {
     background: #1bcc26;
-    background: linear-gradient(8deg, rgba(27, 204, 38, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);50%, rgba(170, 213, 118, 1) 100%);
+    background: linear-gradient(8deg, rgba(27, 204, 38, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
     background-attachment: fixed;
     color: #143601;
     font-family: 'Space Grotesk', sans-serif;
+    
 }
 
 .glass-container {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
     backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    border-top: 1px solid rgba(255, 255, 255, 0.8);
-    border-left: 1px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
     border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.glass-container:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.2) 100%);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* ==== BOLHAS DECORATIVAS ==== */
+.bolha{
+    padding: 50px 50px 50px 50px;
+    position: absolute;
+    top: -20%;
+    left: 95%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, hsl(147, 80%, 37%), #07d8815e);
+      box-shadow: 
+            inset 10px 10px 20px rgba(255, 255, 255, 0.6), /* Brilho interno (luz) */
+            inset -10px -10px 20px rgba(0, 100, 50, 0.2),  /* Sombra interna (volume) */
+            15px 15px 30px rgba(0, 80, 30, 0.2);           /* Sombra externa (profundidade) */
+    border-radius: 60%;
+    filter: blur(1px);
+    animation: flutuar 8s ease-in-out infinite;
+}
+
+.bolhaGrande {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 60%;
+    left: -10%;
+    border-radius: 50%;
+    background: linear-gradient(70deg, hsl(147, 80%, 37%), #07d8815e);
+      box-shadow: 
+            inset 10px 10px 20px rgba(255, 255, 255, 0.6), /* Brilho interno (luz) */
+            inset -10px -10px 20px rgba(0, 100, 50, 0.2),  /* Sombra interna (volume) */
+            15px 15px 30px rgba(0, 80, 30, 0.2);           /* Sombra externa (profundidade) */
+    border-radius: 60%;
+    filter: blur(1px);
+    z-index: -1;
+    animation: float 8s ease-in-out infinite;
+    animation-delay: 3s;
+}
+
+.bolhaGIGANTE {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: linear-gradient(70deg, hsl(147, 80%, 37%), #07d8815e);
+      box-shadow: 
+            inset 10px 10px 20px rgba(255, 255, 255, 0.6), /* Brilho interno (luz) */
+            inset -10px -10px 20px rgba(0, 100, 50, 0.2),  /* Sombra interna (volume) */
+            15px 15px 30px rgba(0, 80, 30, 0.2);           /* Sombra externa (profundidade) */
+    border-radius: 60%;
+    filter: blur(1px);
+    z-index: -1;
+    animation: float 8s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+@keyframes flutuar {
+            0% { transform: translateY(0px) scale(1); }
+            30% { transform: translateY(-20px) scale(1.02); }
+            60% { transform: translateY(-30px) scale(1); }
+            100% { transform: translateY(0px) scale(1); }
+        }
 
 header {
     display: flex;
     justify-content: center;
     gap: 30px;
-    padding: 15px;
-    margin: 20px auto;
+    padding: 1px;
+    margin: 5px auto;
     width: 80%;
     max-width: 600px;
 }
@@ -49,7 +117,8 @@ header a:hover {
     margin: 40px auto;
     padding: 30px;
     width: 80%;
-    max-width: 800px;
+    max-width: 1200px;
+    z-index: 1;
 }
 
 .intro img {
@@ -68,37 +137,49 @@ header a:hover {
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
-.sobremim{
-    flex-direction: column;
-    color: #143601;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 40px auto;
-    width: 80%;
-    max-width: 800px;
-}
-
 .sobremim h2 {
+    margin: 0;
+    padding: 0;
     font-size: 35px;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    margin-bottom: 0px;
 }
 
-#textoSobreMim{
+.bio-formacao {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    width: 70%;
+    max-width: 1200px;
+    margin: 40px auto;
+    align-items: stretch;
+}
+
+.bio-formacao .sobremim,
+.bio-formacao .graduacao {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+.sobremim {
     font-size: 20px;
-    padding: 30px;
+    padding: 0px 30px 0px 10px;
+    margin-top: 0px;
     text-align: center;
     line-height: 1.6;
+    display: inline-block;
+    text-align: left;
+}
+
+#textoSobreMim {
+    margin-top: 0%;
 }
 
 .graduacao{
-    display: flex;
+    display: inline-block;
     align-items: center;
-    margin: 40px auto;
-    padding: 30px;
-    width: 80%;
-    max-width: 800px;
+    padding: 10px;
+    min-height: 50%;
 }
 
 .graduacao h2{
@@ -114,12 +195,11 @@ header a:hover {
 }
 
 #logoUnifil{
-    width: 180px;
+    width: 140px;
     height: auto;
     margin-right: 40px;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
 }
-
 
 
 /* ==== ESTILOS PARA PROJETOS E POSTS (FRUTIGER AERO & GLASSMORPHISM) ==== */
@@ -153,6 +233,13 @@ header a:hover {
     font-size: 25px;
     margin-top: 0;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.projeto-card img{
+    width: 100%; 
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px
 }
 
 .posts-list {
@@ -243,31 +330,90 @@ header a:hover {
     animation: blink 0.7s infinite;
 }
 
-#bolha{
-    padding: 50px 50px 50px 50px;
-    position: absolute;
-    top: -20%;
-    left: 95%;
-    border-radius: 50%;
-    background: linear-gradient(135deg, hsl(147, 80%, 37%), #07d8815e);
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
-    border-radius: 60%;
-}
-
-.bolhaGrande {
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    top: 60%;
-    left: -10%;
-    border-radius: 50%;
-    background: linear-gradient(70deg, hsl(147, 80%, 37%), #07d8815e);
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
-    border-radius: 60%;
-}
-
 @keyframes blink {
     0% { opacity: 1; }
     50% { opacity: 0; }
     100% { opacity: 1; }
+}
+
+/* ==== SEÇÃO DE ESPECIALIDADES E TECNOLOGIAS ==== */
+.especialidades {
+    justify-content: center;
+    gap: 20px;
+    padding: 0px 5px 5px 10px;
+    margin: auto;
+    margin-top: 0px;
+    width: 700px;
+}
+
+.tecnologias {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0px 5px 5px 10px;
+    margin: 10px;
+   
+}
+
+.tecnologias img{
+    width: 50px;
+    height: 50px;
+}
+
+.tecnologias img:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+.tecnologias img:active {
+    transform: scale(1.1);
+    transition: transform 0.1s ease;
+}
+
+.especialidades > .bolhaGrande {
+    left: 650px;
+    top: -90px;
+    animation-delay: 4s;
+}
+
+/* ==== RODAPÉ ==== */
+footer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 1px;
+    margin: 10px auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+#links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: auto;
+    height: auto;
+}
+
+#links a {
+    display: flex;
+    align-items: center;
+}
+
+#links img {
+    width: 50px;
+    height: 50px;
+    display: block;
+}
+
+/* ==== RESPONSIVIDADE ==== */
+@media (max-width: 900px) {
+    .bio-formacao {
+        grid-template-columns: 1fr;
+        width: 80%;
+    }
+
+    .graduacao {
+        justify-content: center;
+    }
 }
