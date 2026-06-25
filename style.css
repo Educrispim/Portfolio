@@ -188,6 +188,7 @@ header a.active {
 
 #textoSobreMim {
     margin-top: 0%;
+    color: #276304;
 }
 
 .graduacao{
@@ -204,6 +205,7 @@ header a.active {
 }
 
 .textosGraduacao p {
+    color: #276304;
     font-size: 20px;
     margin: 5px 0;
 }
@@ -229,8 +231,8 @@ header a.active {
 }
 
 .typing-container {
-    font-size: 28px;
-    color: #143601;
+    font-size: 35px;
+    color: #276304;
     margin-top: 0;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
     height: 40px; /* Para não pular o layout enquanto digita */
@@ -332,6 +334,7 @@ footer {
 }
 
 .projeto-card {
+    color: #276304;
     padding: 30px;
     text-align: center;
     transition: transform 0.3s ease;
@@ -370,6 +373,8 @@ footer {
 }
 
 .post-card {
+    font-size: 20px;
+    color: #276304;
     padding: 30px;
     transition: transform 0.3s ease;
 }
