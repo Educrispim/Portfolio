@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
 body {
     background: #1bcc26;
     background: linear-gradient(8deg, rgba(27, 204, 38, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
     background-attachment: fixed;
     color: #143601;
     font-family: 'Space Grotesk', sans-serif;
-    
+    overflow-x: hidden
 }
 
 .glass-container {
@@ -16,7 +18,7 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.glass-container:hover {
+.glass-container:not(header):hover {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.2) 100%);
     box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
@@ -54,17 +56,17 @@ body {
     border-radius: 60%;
     filter: blur(1px);
     z-index: -1;
-    animation: float 8s ease-in-out infinite;
+    animation: flutuar 8s ease-in-out infinite;
     animation-delay: 3s;
+    
 }
 
 .bolhaGIGANTE {
-    width: 400px;
-    height: 400px;
+    width: 700px;
+    height: 700px;
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: -30%;
     border-radius: 50%;
     background: linear-gradient(70deg, hsl(147, 80%, 37%), #07d8815e);
       box-shadow: 
@@ -73,9 +75,20 @@ body {
             15px 15px 30px rgba(0, 80, 30, 0.2);           /* Sombra externa (profundidade) */
     border-radius: 60%;
     filter: blur(1px);
-    z-index: -1;
-    animation: float 8s ease-in-out infinite;
+    animation: flutuar 8s ease-in-out infinite;
     animation-delay: 2s;
+    z-index: -1;
+}
+.containerBolhaGIGANTE {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    bottom: 0px;
+    width: 600px;
+    height: 600px;
+    overflow: hidden; /* Corta a bolha exatamente no limite do container */
+    z-index: -2;      /* Joga o container inteiro para o fundo */
+    pointer-events: none; /* Garante que a bolha invisível não "roube" os cliques de links e botões */
 }
 
 @keyframes flutuar {
@@ -83,16 +96,15 @@ body {
             30% { transform: translateY(-20px) scale(1.02); }
             60% { transform: translateY(-30px) scale(1); }
             100% { transform: translateY(0px) scale(1); }
-        }
+}
 
 header {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 1px;
     margin: 5px auto;
     width: 80%;
     max-width: 600px;
+    animation: none;
 }
 
 header a {
@@ -100,14 +112,16 @@ header a {
     font-size: 20px;
     font-weight: bold;
     color: #143601;
-    padding: 10px 20px;
+    padding: 0px 30px 0 30px;
     border-radius: 20px;
-    transition: all 0.3s ease;
 }
 
 header a:hover {
     background: rgba(255, 255, 255, 0.5);
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+header a.active {
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .intro {
@@ -122,8 +136,9 @@ header a:hover {
 }
 
 .intro img {
-    width: 250px;
-    height: 250px;
+    object-fit: cover;
+    width: 200px;
+    height: 230px;
     border-radius: 50%;
     margin-right: 40px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -163,7 +178,7 @@ header a:hover {
 
 .sobremim {
     font-size: 20px;
-    padding: 0px 30px 0px 10px;
+    padding: 30px 30px 30px 30px;
     margin-top: 0px;
     text-align: center;
     line-height: 1.6;
@@ -178,15 +193,14 @@ header a:hover {
 .graduacao{
     display: inline-block;
     align-items: center;
-    padding: 10px;
+    padding: 30px;
     min-height: 50%;
 }
 
 .graduacao h2{
-    font-size: 30px;
+    font-size: 35px;
     margin: 0 0 10px 0;
     color: #143601;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 .textosGraduacao p {
@@ -201,6 +215,109 @@ header a:hover {
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
 }
 
+/* ==== ANIMAÇÃO DE DIGITAÇÃO ==== */
+.intro-textos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 40px;
+}
+
+.intro-textos h1 {
+    margin-bottom: 5px;
+}
+
+.typing-container {
+    font-size: 28px;
+    color: #143601;
+    margin-top: 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    height: 40px; /* Para não pular o layout enquanto digita */
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    margin-left: 2px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* ==== SEÇÃO DE ESPECIALIDADES E TECNOLOGIAS ==== */
+.especialidades {
+    justify-content: center;
+    gap: 20px;
+    padding: 0px 5px 5px 10px;
+    margin: auto;
+    margin-top: 0px;
+    width: 700px;
+}
+
+.tecnologias {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0px 5px 5px 10px;
+    margin: 10px;
+   
+}
+
+.tecnologias img{
+    width: 50px;
+    height: 50px;
+}
+
+.tecnologias img:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+.tecnologias img:active {
+    transform: scale(1.1);
+    transition: transform 0.1s ease;
+}
+
+.especialidades > .bolhaGrande {
+    left: 650px;
+    top: -90px;
+    animation-delay: 4s;
+}
+
+/* ==== RODAPÉ ==== */
+footer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 1px;
+    margin: 90px auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+#links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: auto;
+    height: auto;
+}
+
+#links a {
+    display: flex;
+    align-items: center;
+}
+
+#links img {
+    width: 50px;
+    height: 50px;
+    display: block;
+}
 
 /* ==== ESTILOS PARA PROJETOS E POSTS (FRUTIGER AERO & GLASSMORPHISM) ==== */
 
@@ -302,108 +419,12 @@ header a:hover {
     
 }
 
-/* ==== ANIMAÇÃO DE DIGITAÇÃO ==== */
-.intro-textos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-right: 40px;
-}
-
-.intro-textos h1 {
-    margin-bottom: 5px;
-}
-
-.typing-container {
-    font-size: 28px;
+#titulosSecao{
+    text-align: center;
     color: #143601;
-    margin-top: 0;
+    font-size: 35px;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-    height: 40px; /* Para não pular o layout enquanto digita */
-}
-
-.cursor {
-    display: inline-block;
-    width: 3px;
-    margin-left: 2px;
-    animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-/* ==== SEÇÃO DE ESPECIALIDADES E TECNOLOGIAS ==== */
-.especialidades {
-    justify-content: center;
-    gap: 20px;
-    padding: 0px 5px 5px 10px;
-    margin: auto;
-    margin-top: 0px;
-    width: 700px;
-}
-
-.tecnologias {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 0px 5px 5px 10px;
-    margin: 10px;
-   
-}
-
-.tecnologias img{
-    width: 50px;
-    height: 50px;
-}
-
-.tecnologias img:hover {
-    transform: scale(1.2);
-    transition: transform 0.3s ease;
-}
-
-.tecnologias img:active {
-    transform: scale(1.1);
-    transition: transform 0.1s ease;
-}
-
-.especialidades > .bolhaGrande {
-    left: 650px;
-    top: -90px;
-    animation-delay: 4s;
-}
-
-/* ==== RODAPÉ ==== */
-footer {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 1px;
-    margin: 10px auto;
-    width: 80%;
-    max-width: 600px;
-}
-
-#links {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    width: auto;
-    height: auto;
-}
-
-#links a {
-    display: flex;
-    align-items: center;
-}
-
-#links img {
-    width: 50px;
-    height: 50px;
-    display: block;
+    margin-bottom: 20px;
 }
 
 /* ==== RESPONSIVIDADE ==== */

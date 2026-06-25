@@ -1,5 +1,5 @@
 const elementoTexto = document.getElementById('typing-text');
-const palavras = ["Dev?", "GameDev?", "Entusiasta"];
+const palavras = ["Dev", "GameDev", "Entusiasta"];
 let indicePalavra = 0;
 let indiceCaractere = 0;
 let apagando = false;
