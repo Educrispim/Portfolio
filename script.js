@@ -34,3 +34,7 @@ function digitar() {
     setTimeout(digitar, velocidadeDigitacao);
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    digitar();
+});
+

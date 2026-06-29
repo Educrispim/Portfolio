@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background: #1bcc26;
     background: linear-gradient(8deg, rgba(27, 204, 38, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
     background-attachment: fixed;
     color: #143601;
     font-family: 'Space Grotesk', sans-serif;
-    overflow-x: hidden
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 .vidro-container {
@@ -627,9 +634,4 @@ footer {
         display: none; /* Oculta bolhas no celular para evitar problemas de layout e rolagem */
     }
 
-    .posts-titulo > #titulosSecao{
-        margin-top: 50px;
-        margin-bottom: 0;
-    
-    }
 }
