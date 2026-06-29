@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="vidro-container">
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="projetos.html">Projetos</a>
+            <a href="posts.html">Postagens</a>
+            <a href="contato.html" class="active">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <span class="bolha" style="top: 15%; left: 82%; animation-delay: 1.5s;"></span>
+        <span class="bolhaGrande" style="top: 55%; left: 8%; animation-delay: 3.5s;"></span>
+
+        <section class="posts-titulo">
+            <h2 id="titulosSecao">Entre em Contato</h2>
+        </section>
+
+        <section class="contato-container vidro-container">
+            <p style="color: #276304; font-size: 20px;">Tem alguma ideia de projeto, proposta ou apenas quer bater um papo sobre código? Me mande uma mensagem!</p>
+            
+            <form class="formulario">
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                </div>
+                <div>
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                </div>
+                <div>
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                </div>
+                <button type="submit" class="btn-aero">Enviar Mensagem</button>
+            </form>
+        </section>
+
+        <footer class="vidro-container">
+            <p>© 2026 Eduardo Crispim.</p>
+            <div id="links">
+                <a href="https://github.com/Educrispim" target="_blank"><img src="./imagens/tecnologias/github.svg" alt="Perfil do GitHub"></a>
+                <a href="https://br.linkedin.com/in/eduardo-crispim-4a525a387" target="_blank"><img src="./imagens/tecnologias/linkedin-brands-solid-full.svg" alt="Perfil do Linkedin"></a>
+            </div>
+        </footer>        
+    </main>
+</body>
+</html>

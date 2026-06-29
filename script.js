@@ -1,4 +1,4 @@
-const elementoTexto = document.getElementById('typing-text');
+const elementoTexto = document.getElementById('digitando-texto');
 const palavras = ["Dev", "GameDev", "Entusiasta"];
 let indicePalavra = 0;
 let indiceCaractere = 0;
@@ -34,8 +34,3 @@ function digitar() {
     setTimeout(digitar, velocidadeDigitacao);
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    if (elementoTexto) {
-        setTimeout(digitar, 1000);
-    }
-});

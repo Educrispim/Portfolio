@@ -9,7 +9,7 @@ body {
     overflow-x: hidden
 }
 
-.glass-container {
+.vidro-container {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -18,7 +18,7 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.glass-container:not(header):hover {
+.vidro-container:not(header):hover {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.2) 100%);
     box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
@@ -86,9 +86,8 @@ body {
     bottom: 0px;
     width: 600px;
     height: 600px;
-    overflow: hidden; /* Corta a bolha exatamente no limite do container */
+    overflow: hidden; /* Corta a bolha exatamente no limite do container, inclusive isso daqui deu muita dor de cabeça até descobrir o que era ;( */
     z-index: -2;      /* Joga o container inteiro para o fundo */
-    pointer-events: none; /* Garante que a bolha invisível não "roube" os cliques de links e botões */
 }
 
 @keyframes flutuar {
@@ -321,8 +320,7 @@ footer {
     display: block;
 }
 
-/* ==== ESTILOS PARA PROJETOS E POSTS (FRUTIGER AERO & GLASSMORPHISM) ==== */
-
+/* ==== ESTILOS PARA PROJETOS E POSTS (FRUTIGER AERO & GlASSMORPHISM) ==== */
 .projetos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -432,14 +430,206 @@ footer {
     margin-bottom: 20px;
 }
 
+/* ==== ESTILOS DA PÁGINA DE CONTATO ==== */
+.contato-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 40px;
+    text-align: center;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.formulario label {
+    color: #143601;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.formulario input, .formulario textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #143601;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.formulario input:focus, .formulario textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+.formulario textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.formulario button {
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    width: 100%;
+}
+
+/* ==== ESTILOS DAS PÁGINAS DE POST ÚNICO ==== */
+.post-completo {
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    line-height: 1.6;
+}
+
+.post-completo h2 {
+    color: #143601;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.post-completo p {
+    font-size: 20px;
+    color: #276304;
+    margin-bottom: 20px;
+}
+
 /* ==== RESPONSIVIDADE ==== */
 @media (max-width: 900px) {
+    header {
+        width: 90%;
+    }
+    
+    header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
     .bio-formacao {
         grid-template-columns: 1fr;
-        width: 80%;
+        width: 90%;
+        gap: 30px;
     }
 
     .graduacao {
         justify-content: center;
+        text-align: center;
+    }
+    
+    #logoUnifil {
+        margin: 20px auto 0 auto;
+        display: block;
+    }
+
+    .especialidades {
+        width: 90%;
+        text-align: center;
+    }
+
+    .tecnologias {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        margin: 10px 10px 10px 20px;
+    }
+
+
+    .intro {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 10px;
+        width: 80%;
+        margin: 20px;
+    }
+
+    .intro img {
+        margin: 0 auto 20px auto;
+        width: 150px;
+        height: 170px;
+    }
+
+    .intro-textos {
+        margin-right: 0;
+    }
+
+    .intro-textos h1 {
+        font-size: 30px;
+    }
+
+    .typing-container {
+        font-size: 24px;
+        height: 30px;
+    }
+
+    .bio-formacao {
+        margin: 20px;
+        gap: 20px;
+        width: 80%;
+    }
+
+    .sobremim {
+        padding: 10px;
+        font-size: 15px;
+    }
+    .sobremim h2 {
+        text-align: center;
+    }
+
+    .graduacao {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .projetos-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .especialidades {
+        width: 83%;
+        margin: 10px 20px 10px 20px;
+        padding-right: 0px;
+    }
+
+    .especialidades img {
+        font-size: 15px;
+        width: 30px;
+        height: 30px;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        margin: 30px 20px 10px 40px;
+        width: 70%;
+        gap: 15px;
+        padding: 10px;
+    }
+    
+    .bolhaGIGANTE, .bolhaGrande, .bolha{
+        display: none; /* Oculta bolhas no celular para evitar problemas de layout e rolagem */
+    }
+
+    .posts-titulo > #titulosSecao{
+        margin-top: 50px;
+        margin-bottom: 0;
+    
     }
 }

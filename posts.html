@@ -7,30 +7,47 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="glass-container">
-        <a href="index.html">Inicio</a>
-        <a href="projetos.html">Projetos</a>
-        <a href="posts.html">Postagens</a>
+    <header class="vidro-container">
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="projetos.html">Projetos</a>
+            <a href="posts.html">Postagens</a>
+            <a href="contato.html">Contato</a>
+        </nav>
     </header>
+
     <main>
+        <span class="bolhaGrande" style="top: 5%; left: 75%; animation-delay: 2s;"></span>
+        <span class="bolha" style="top: 45%; left: 5%; animation-delay: 0.5s;"></span>
+        <span class="bolhaGrande" style="top: 70%; left: 80%; animation-delay: 5s;"></span>
+
         <section class="posts-titulo">
             <h2 id="titulosSecao">Minhas Postagens (Tech & Aprendizado)</h2>
         </section>
         
         <section class="posts-list">
-            <article class="post-card glass-container">
+            <article class="post-card vidro-container">
                 <h3>Rumo ao novo mundo digital do Penguin</h3>
                 <span class="post-date">24 de Junho de 2026</span>
                 <p>Neste artigo compartilho experiências que venho tendo ao migrar para o ambiente Linux</p>
-                <a href="#" class="btn-aero">Ler mais</a>
+                <a href="./postagens/postagemPenguin.html" class="btn-aero">Ler mais</a>
             </article>
-            <article class="post-card glass-container">
-                <h3>Implementando Glassmorphism</h3>
+            <article class="post-card vidro-container">
+                <h3>Implementando vidromorphism</h3>
                 <span class="post-date">20 de Junho de 2026</span>
                 <p>Aqui conto os desafios e propriedades necessárias para conseguir esse efeito acrílico e frutiger aero no portfolio...</p>
-                <a href="#" class="btn-aero">Ler mais</a>
+                <a href="./postagens/postagemGlassmorphism.html" class="btn-aero">Ler mais</a>
             </article>
         </section>
+
+        <footer class="vidro-container">
+            <p>© 2026 Eduardo Crispim.</p>
+            <div id="links">
+                <a href="https://github.com/Educrispim" target="_blank"><img src="./imagens/tecnologias/github.svg" alt="Perfil do GitHub"></a>
+                <a href="https://br.linkedin.com/in/eduardo-crispim-4a525a387" target="_blank"><img src="./imagens/tecnologias/linkedin-brands-solid-full.svg" alt="Perfil do Linkedin"></a>
+            </div>
+        </footer>        
+
     </main>
     <script src="script.js"></script>
 </body>

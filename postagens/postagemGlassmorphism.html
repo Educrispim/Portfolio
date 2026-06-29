@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando vidromorphism - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="vidro-container">
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="projetos.html">Projetos</a>
+            <a href="posts.html" class="active">Postagens</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <article class="post-completo vidro-container">
+            <h2>Implementando vidromorphism</h2>
+            <span class="post-date">20 de Junho de 2026</span>
+            
+            <p>Para o design deste portfólio, decidi misturar a estética Frutiger Aero (com suas cores vibrantes, natureza e bolhas de ar) com a técnica moderna do vidromorphism, que simula vidro fosco.</p>
+            
+            <p>O segredo no CSS está no uso da propriedade <code>backdrop-filter: blur(15px)</code>. Quando aplicada junto com um <code>background</code> de gradiente linear semi-transparente (usando RGBA com valores baixos de opacidade), o fundo da página é renderizado de forma desfocada por trás do elemento.</p>
+            
+            <p>Além disso, para dar a sensação tátil de "vidro cortado", é essencial usar uma borda bem fina e translúcida (<code>border: 1px solid rgba(255, 255, 255, 0.5)</code>) e um <code>box-shadow</code> leve para destacar o container do fundo. O resultado é um layout limpo que interage lindamente com as bolhas animadas flutuando ao fundo.</p>
+            
+            <a href="./posts.html" class="btn-aero">← Voltar para postagens</a>
+        </article>
+    </main>
+</body>
+</html>
