@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-html, body {
+ body {
     background: #1bcc26;
     background: linear-gradient(8deg, rgba(27, 204, 38, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
     background-attachment: fixed;
