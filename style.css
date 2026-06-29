@@ -520,7 +520,7 @@ footer p {
 }
 
 /* ==== RESPONSIVIDADE ==== */
-@media (max-width: 900px) {
+@media (max-width: 600px) {
     header {
         width: 90%;
     }
