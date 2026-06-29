@@ -261,7 +261,7 @@ header a.active {
 .especialidades {
     justify-content: center;
     gap: 20px;
-    padding: 0px 5px 5px 10px;
+    padding: 5px 5px 5px 10px;
     margin: auto;
     margin-top: 0px;
     width: 700px;
@@ -311,7 +311,7 @@ footer {
 footer p {
     color: #276304;
     font-size: 18px;
-    margin: 10px;
+    margin: 15px;
 }
 
 #links {
