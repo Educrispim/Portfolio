@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     background: #1bcc26;
     background: linear-gradient(8deg, rgba(27, 204, 38, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
     background-attachment: fixed;
@@ -637,7 +637,7 @@ footer p {
         padding: 10px;
     }
     
-    .bolhaGIGANTE, .bolhaGrande, .bolha{
+    .bolhaGIGANTE, .bolhaGrande, .bolha, .containerBolhaGIGANTE{
         display: none; /* Oculta bolhas no celular para evitar problemas de layout e rolagem */
     }
 
